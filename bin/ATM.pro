@@ -15,7 +15,6 @@ HEADERS += \
     ../classes/model/Account.h \
     ../classes/model/ATM.h \
     ../classes/model/ATMTransanction.h \
-    ../classes/model/Bank.h \
     ../classes/model/CreditAccount.h \
     ../classes/model/Customer.h \
     ../classes/model/Date.h \
@@ -28,7 +27,8 @@ HEADERS += \
     ../classes/gui/LastOperations.h \
     ../classes/gui/LoginScreen.h \
     ../classes/gui/MainWindow.h \
-    ../classes/gui/SendMoneyToAnotherCard.h
+    ../classes/gui/SendMoneyToAnotherCard.h \
+    ../classes/model/Bank.h
 
 SOURCES += \
     ../classes/model/Date.cpp \

@@ -2,7 +2,7 @@
 /* 
  * @author
  * Kutsyk Vasyl
- * © K.V.N.
+ * K.V.N.
  */
 
 #include <iostream>

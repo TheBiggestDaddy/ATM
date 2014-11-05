@@ -1,7 +1,7 @@
 /* 
  * @author
  * Kutsyk Vasyl
- * © K.V.N.
+ * K.V.N.
  * 16/03/2014
  */
 

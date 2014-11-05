@@ -2,7 +2,7 @@
 /* 
  * @author
  * Kutsyk Vasyl
- * © K.V.N.
+ * K.V.N.
  */
 #include <iostream>
 #include <vector>
@@ -13,7 +13,6 @@ using namespace std;
 class Bank
 {
 private:
-	ATM* atm;	
 	vector<Customer> _customers;
 
 	Bank(const Bank&);
@@ -24,4 +23,6 @@ private:
 public:
 	Bank();
 	~Bank();
+
+
 };
