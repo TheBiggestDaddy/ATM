@@ -12,13 +12,7 @@ TARGET = ATM
 TEMPLATE = app
 
 HEADERS += \
-    ../classes/model/Account.h \
-    ../classes/model/ATM.h \
-    ../classes/model/ATMTransanction.h \
-    ../classes/model/CreditAccount.h \
-    ../classes/model/Customer.h \
-    ../classes/model/Date.h \
-    ../classes/model/DebitAccount.h \
+    ../classes/Controller.h \
     ../classes/gui/AddMoneyToMobileAccount.h \
     ../classes/gui/AnotherCash.h \
     ../classes/gui/Cashing.h \
@@ -28,10 +22,19 @@ HEADERS += \
     ../classes/gui/LoginScreen.h \
     ../classes/gui/MainWindow.h \
     ../classes/gui/SendMoneyToAnotherCard.h \
-    ../classes/model/Bank.h
+    ../classes/gui/Windows.h \
+    ../classes/model/Account.h \
+    ../classes/model/ATM.h \
+    ../classes/model/ATMTransanction.h \
+    ../classes/model/Bank.h \
+    ../classes/model/CreditAccount.h \
+    ../classes/model/Customer.h \
+    ../classes/model/Date.h \
+    ../classes/model/DebitAccount.h
 
 SOURCES += \
-    ../classes/model/Date.cpp \
+    ../classes/Controller.cpp \
+    ../classes/main.cpp \
     ../classes/gui/AddMoneyToMobileAccount.cpp \
     ../classes/gui/AnotherCash.cpp \
     ../classes/gui/Cashing.cpp \
@@ -39,10 +42,10 @@ SOURCES += \
     ../classes/gui/Information.cpp \
     ../classes/gui/LastOperations.cpp \
     ../classes/gui/LoginScreen.cpp \
-    ../classes/gui/main.cpp \
     ../classes/gui/MainWindow.cpp \
     ../classes/gui/SendMoneyToAnotherCard.cpp \
     ../classes/model/Bank.cpp \
+    ../classes/model/Date.cpp \
     ../classes/model/MainForKutsyk.cpp
 
 FORMS += \
