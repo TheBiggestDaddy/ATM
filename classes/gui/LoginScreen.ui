@@ -27,14 +27,14 @@
   </property>
   <widget class="QLineEdit" name="card_number_line">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>130</y>
-     <width>201</width>
-     <height>31</height>
+     <x>300</x>
+     <y>160</y>
+     <width>271</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -55,10 +55,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>130</y>
-     <width>321</width>
-     <height>31</height>
+     <x>-40</x>
+     <y>160</y>
+     <width>331</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -73,8 +73,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>200</y>
+     <x>-40</x>
+     <y>230</y>
      <width>321</width>
      <height>31</height>
     </rect>
@@ -90,14 +90,14 @@
   </widget>
   <widget class="QLineEdit" name="card_number_line_2">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>200</y>
+     <x>300</x>
+     <y>230</y>
      <width>81</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
