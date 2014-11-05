@@ -43,11 +43,11 @@ OBJECTS_DIR   = release
 
 ####### Files
 
-SOURCES       = ..\..\classes\gui\AddMoneyToMobileAccount.cpp \
+SOURCES       = ..\..\classes\model\Date.cpp \
+		..\..\classes\gui\AddMoneyToMobileAccount.cpp \
 		..\..\classes\gui\AnotherCash.cpp \
 		..\..\classes\gui\Cashing.cpp \
 		..\..\classes\gui\ChooseAction.cpp \
-		..\classes\gui\Date.cpp \
 		..\..\classes\gui\Information.cpp \
 		..\..\classes\gui\LastOperations.cpp \
 		..\..\classes\gui\LoginScreen.cpp \
@@ -62,11 +62,11 @@ SOURCES       = ..\..\classes\gui\AddMoneyToMobileAccount.cpp \
 		release\moc_LoginScreen.cpp \
 		release\moc_MainWindow.cpp \
 		release\moc_SendMoneyToAnotherCard.cpp
-OBJECTS       = release\AddMoneyToMobileAccount.obj \
+OBJECTS       = release\Date.obj \
+		release\AddMoneyToMobileAccount.obj \
 		release\AnotherCash.obj \
 		release\Cashing.obj \
 		release\ChooseAction.obj \
-		release\Date.obj \
 		release\Information.obj \
 		release\LastOperations.obj \
 		release\LoginScreen.obj \
@@ -93,26 +93,6 @@ DESTDIR_TARGET = release\ATM.exe
 
 .SUFFIXES: .c .cpp .cc .cxx
 
-{..\classes\gui}.cpp{release\}.obj::
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
-	$<
-<<
-
-{..\classes\gui}.cc{release\}.obj::
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
-	$<
-<<
-
-{..\classes\gui}.cxx{release\}.obj::
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
-	$<
-<<
-
-{..\classes\gui}.c{release\}.obj::
-	$(CC) -c $(CFLAGS) $(INCPATH) -Forelease\ @<<
-	$<
-<<
-
 {..\..\classes\gui}.cpp{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
@@ -133,22 +113,22 @@ DESTDIR_TARGET = release\ATM.exe
 	$<
 <<
 
-{.}.cpp{release\}.obj::
+{..\..\classes\model}.cpp{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{.}.cc{release\}.obj::
+{..\..\classes\model}.cc{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{.}.cxx{release\}.obj::
+{..\..\classes\model}.cxx{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{.}.c{release\}.obj::
+{..\..\classes\model}.c{release\}.obj::
 	$(CC) -c $(CFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
@@ -173,6 +153,26 @@ DESTDIR_TARGET = release\ATM.exe
 	$<
 <<
 
+{.}.cpp{release\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
+	$<
+<<
+
+{.}.cc{release\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
+	$<
+<<
+
+{.}.cxx{release\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
+	$<
+<<
+
+{.}.c{release\}.obj::
+	$(CC) -c $(CFLAGS) $(INCPATH) -Forelease\ @<<
+	$<
+<<
+
 ####### Build rules
 
 first: all
@@ -193,7 +193,7 @@ dist:
 	$(ZIP) ATM.zip $(SOURCES) $(DIST) ..\..\bin\ATM.pro C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\spec_pre.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\common\shell-win32.conf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\qconfig.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_axbase.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_axserver.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_core.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_core_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_declarative.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_declarative_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_designer.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_gui.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_help.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_help_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_network.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_network_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_nfc.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_opengl.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_positioning.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_qml.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_quick.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_script.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_script_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_sensors.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_serialport.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_sql.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_svg.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_testlib.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_uitools.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_webkit.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_webkit_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_webkitwidgets.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_webkitwidgets_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_widgets.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_winextras.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_xml.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\qt_functions.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\qt_config.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\win32-msvc2012\qmake.conf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\spec_post.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\exclusive_builds.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\default_pre.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\win32\default_pre.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\resolve_config.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\exclusive_builds_post.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\default_post.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\build_pass.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\qml_debug.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\declarative_debug.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\win32\rtti.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\warn_on.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\qt.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\resources.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\moc.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\win32\opengl.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\uic.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\win32\windows.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\testcase_targets.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\exceptions.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\yacc.prf C:\Qt\Qt5.2.1\5.2.1\msvc2012\mkspecs\features\lex.prf ..\..\bin\ATM.pro C:/Qt/Qt5.2.1/5.2.1/msvc2012/lib/Qt5Widgets.prl C:/Qt/Qt5.2.1/5.2.1/msvc2012/lib/Qt5Gui.prl C:/Qt/Qt5.2.1/5.2.1/msvc2012/lib/Qt5Core.prl C:/Qt/Qt5.2.1/5.2.1/msvc2012/lib/libEGL.prl C:/Qt/Qt5.2.1/5.2.1/msvc2012/lib/libGLESv2.prl  RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\AddMoneyToMobileAccount.obj release\AnotherCash.obj release\Cashing.obj release\ChooseAction.obj release\Date.obj release\Information.obj release\LastOperations.obj release\LoginScreen.obj release\main.obj release\MainWindow.obj release\SendMoneyToAnotherCard.obj release\moc_AddMoneyToMobileAccount.obj release\moc_AnotherCash.obj release\moc_Cashing.obj release\moc_ChooseAction.obj release\moc_Information.obj release\moc_LastOperations.obj release\moc_LoginScreen.obj release\moc_MainWindow.obj release\moc_SendMoneyToAnotherCard.obj
+	-$(DEL_FILE) release\Date.obj release\AddMoneyToMobileAccount.obj release\AnotherCash.obj release\Cashing.obj release\ChooseAction.obj release\Information.obj release\LastOperations.obj release\LoginScreen.obj release\main.obj release\MainWindow.obj release\SendMoneyToAnotherCard.obj release\moc_AddMoneyToMobileAccount.obj release\moc_AnotherCash.obj release\moc_Cashing.obj release\moc_ChooseAction.obj release\moc_Information.obj release\moc_LastOperations.obj release\moc_LoginScreen.obj release\moc_MainWindow.obj release\moc_SendMoneyToAnotherCard.obj
 	-$(DEL_FILE) release\ATM.exp release\ATM.exe.embed.manifest
 
 distclean: clean
@@ -1265,6 +1265,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
+release\Date.obj: ..\..\classes\model\Date.cpp ..\..\classes\model\Date.h
+
 release\AddMoneyToMobileAccount.obj: ..\..\classes\gui\AddMoneyToMobileAccount.cpp ..\..\classes\gui\AddMoneyToMobileAccount.h \
 		C:\Qt\Qt5.2.1\5.2.1\msvc2012\include\QtWidgets\QFrame \
 		C:\Qt\Qt5.2.1\5.2.1\msvc2012\include\QtWidgets\qframe.h \
@@ -1712,8 +1714,6 @@ release\ChooseAction.obj: ..\..\classes\gui\ChooseAction.cpp ..\..\classes\gui\C
 		C:\Qt\Qt5.2.1\5.2.1\msvc2012\include\QtGui\qvector2d.h \
 		C:\Qt\Qt5.2.1\5.2.1\msvc2012\include\QtGui\qtouchdevice.h \
 		ui_ChooseAction.h
-
-release\Date.obj: ..\classes\gui\Date.cpp 
 
 release\Information.obj: ..\..\classes\gui\Information.cpp ..\..\classes\gui\Information.h \
 		C:\Qt\Qt5.2.1\5.2.1\msvc2012\include\QtWidgets\QFrame \
