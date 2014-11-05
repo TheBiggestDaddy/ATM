@@ -41,7 +41,9 @@ SOURCES += \
     ../classes/gui/LoginScreen.cpp \
     ../classes/gui/main.cpp \
     ../classes/gui/MainWindow.cpp \
-    ../classes/gui/SendMoneyToAnotherCard.cpp
+    ../classes/gui/SendMoneyToAnotherCard.cpp \
+    ../classes/model/Bank.cpp \
+    ../classes/model/MainForKutsyk.cpp
 
 FORMS += \
     ../classes/gui/aChooseAction.ui \

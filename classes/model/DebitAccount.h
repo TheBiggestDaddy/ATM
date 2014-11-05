@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Account.h"
+#include "Customer.h"
 #include "Date.h"
 
 using namespace std;
@@ -14,6 +15,7 @@ using namespace std;
 class DebitAccount: protected Account
 {
 private:
+    Customer* _owner;
 	DebitAccount(const DebitAccount&);
 	DebitAccount& operator=(const DebitAccount&);
 public:

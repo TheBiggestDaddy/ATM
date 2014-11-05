@@ -4,25 +4,35 @@
  * Kutsyk Vasyl
  * K.V.N.
  */
+#pragma once
+/*
+ * @author
+ * Kutsyk Vasyl
+ * K.V.N.
+ */
 #include <iostream>
 #include <vector>
-#include "ATM.h"
+#include <QString>
+#include <QMap>
+#include "Account.h"
 
 using namespace std;
 
 class Bank
 {
 private:
-	vector<Customer> _customers;
+    static vector<Account> _acounts;
 
-	Bank(const Bank&);
-	Bank& operator=(const Bank&);
+    Bank(const Bank&);
+    Bank& operator=(const Bank&);
 
-	void fillCustomers();
+    void fillAccounts();
+    void getAccountsFromFile(QMap<QString, QString> &usersMap);
+    void getAccountData(QString, QString);
 
 public:
-	Bank();
-	~Bank();
+    Bank();
+    ~Bank();
 
-
+    static bool isValidAccount(QString login, QString password);
 };

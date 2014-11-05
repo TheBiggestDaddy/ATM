@@ -1,0 +1,6 @@
+T: C
+N: Customer
+S: Reach
+A: New York
+M: 10000
+G: 1000
