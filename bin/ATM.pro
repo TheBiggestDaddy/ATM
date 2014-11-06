@@ -30,7 +30,9 @@ HEADERS += \
     ../classes/model/CreditAccount.h \
     ../classes/model/Customer.h \
     ../classes/model/Date.h \
-    ../classes/model/DebitAccount.h
+    ../classes/model/DebitAccount.h \
+    ../classes/controller/ScreenHandler.h \
+    ../classes/controller/LoginScreenHandler.h
 
 SOURCES += \
     ../classes/Controller.cpp \
@@ -46,7 +48,9 @@ SOURCES += \
     ../classes/gui/SendMoneyToAnotherCard.cpp \
     ../classes/model/Bank.cpp \
     ../classes/model/Date.cpp \
-    ../classes/model/MainForKutsyk.cpp
+    ../classes/model/MainForKutsyk.cpp \
+    ../classes/controller/ScreenHandler.cpp \
+    ../classes/controller/LoginScreenHandler.cpp
 
 FORMS += \
     ../classes/gui/aChooseAction.ui \
