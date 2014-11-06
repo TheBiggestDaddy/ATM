@@ -8,7 +8,7 @@
 #include "gui/Information.h"
 #include "gui/LastOperations.h"
 #include "gui/LoginScreen.h"
-
+#include "gui/SendMoneyToAnotherCard.h"
 
 #include <iostream>
 
@@ -86,21 +86,68 @@ void Controller::onRightButton1Clicked ()
 
 void Controller::openWindow(const Windows::Window& screen)
 {
-    switch (screen)
+    if(_current_frame != nullptr)
     {
-    case Windows::LoginScreen:
+        delete _current_frame;
+    }
+    if(_current_screen_handler != nullptr)
     {
         delete _current_screen_handler;
-        _current_screen_handler = new LoginScreenHandler(*this);
+    }
+    switch (screen)
+    {
+    case Windows::AddMoneyToMobileAccount:
+    {
+        _current_frame = new AddMoneyToMobileAccount ();
+        _current_screen_handler = new AddMoneyToMobileAccountHandler (*this);
+        break;
+    }
+    case Windows::AnotherCash:
+    {
+        _current_frame = new AnotherCash ();
+        _current_screen_handler = new AnotherCashHandler (*this);
+        break;
+    }
+    case Windows::Cashing:
+    {
+        _current_frame = new Cashing ();
+        _current_screen_handler = new CashingHandler (*this);
         break;
     }
     case Windows::ChooseAction:
     {
-        delete _current_screen_handler;
-        _current_screen_handler = new ChooseActionHandler(*this);
+        _current_frame = new ChooseAction ();
+        _current_screen_handler = new ChooseActionHandler (*this);
+        break;
+    }
+    case Windows::Information:
+    {
+        _current_frame = new Information ();
+        _current_screen_handler = new InformationHandler (*this);
+        break;
+    }
+    case Windows::LastOperations:
+    {
+        _current_frame = new LastOperations ();
+        _current_screen_handler = new LastOperationsHandler (*this);
+        break;
+    }
+    case Windows::LoginScreen:
+    {
+        _current_frame = new LoginScreen ();
+        _current_screen_handler = new LoginScreenHandler (*this);
+        break;
+    }
+    case Windows::SendMoneyToAnotherCard:
+    {
+        _current_frame = new SendMoneyToAnotherCard ();
+        _current_screen_handler = new SendMoneyToAnotherCardHandler (*this);
         break;
     }
     default:
+        throw "Can`t detect screen! =(";
         break;
     }
+
+    _window.addFrameChild (_current_frame);
 }

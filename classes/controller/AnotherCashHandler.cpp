@@ -5,7 +5,13 @@ AnotherCashHandler::AnotherCashHandler(Controller &master):
 {
 
 }
-AnotherCashHandler::~AnotherCashHandler()
+
+AnotherCashHandler::~AnotherCashHandler ()
 {
 
+}
+
+void AnotherCashHandler::backspaceClicked ()
+{
+    _master.openWindow(Windows::ChooseAction);
 }

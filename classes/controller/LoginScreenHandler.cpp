@@ -14,5 +14,9 @@ void LoginScreenHandler::okClicked ()
 
 LoginScreenHandler::~LoginScreenHandler ()
 {
-    std::cout << "Login Screen halndler: destructor" << std::endl;
+
+}
+void LoginScreenHandler::backspaceClicked ()
+{
+
 }

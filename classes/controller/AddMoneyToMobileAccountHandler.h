@@ -9,7 +9,8 @@ class AddMoneyToMobileAccountHandler:public ScreenHandler
 {
 public:
     AddMoneyToMobileAccountHandler(class Controller& master);
-
+    virtual ~AddMoneyToMobileAccountHandler ();
+    virtual void backspaceClicked ();
 private:
     Controller& _master;
 };

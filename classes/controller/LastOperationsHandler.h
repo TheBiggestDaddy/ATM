@@ -9,7 +9,8 @@ class LastOperationsHandler: public ScreenHandler
 {
 public:
     LastOperationsHandler(class Controller& master);
-
+    virtual ~LastOperationsHandler ();
+    virtual void backspaceClicked ();
 private:
     Controller& _master;
 };

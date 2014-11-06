@@ -9,7 +9,9 @@ class CashingHandler:public ScreenHandler
 {
 public:
     CashingHandler(class Controller& master);
-
+    virtual ~CashingHandler ();
+    virtual void backspaceClicked ();
+    virtual void right1clicked ();
 private:
     Controller& _master;
 };

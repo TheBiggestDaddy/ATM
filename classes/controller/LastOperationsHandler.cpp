@@ -5,3 +5,13 @@ LastOperationsHandler::LastOperationsHandler(Controller& master):
 {
 
 }
+
+LastOperationsHandler::~LastOperationsHandler ()
+{
+
+}
+
+void LastOperationsHandler::backspaceClicked ()
+{
+    _master.openWindow(Windows::ChooseAction);
+}

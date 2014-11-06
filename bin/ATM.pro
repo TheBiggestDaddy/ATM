@@ -39,7 +39,7 @@ HEADERS += \
     ../classes/controller/ChooseActionHandler.h \
     ../classes/controller/InformationHandler.h \
     ../classes/controller/LastOperationsHandler.h \
-    ../classes/controller/SendMoneyToAnotherCard.h
+    ../classes/controller/SendMoneyToAnotherCardHandler.h
 
 SOURCES += \
     ../classes/Controller.cpp \
@@ -64,10 +64,9 @@ SOURCES += \
     ../classes/controller/ChooseActionHandler.cpp \
     ../classes/controller/InformationHandler.cpp \
     ../classes/controller/LastOperationsHandler.cpp \
-    ../classes/controller/SendMoneyToAnotherCard.cpp
+    ../classes/controller/SendMoneyToAnotherCardHandler.cpp
 
 FORMS += \
-    ../classes/gui/aChooseAction.ui \
     ../classes/gui/AddMoneyToMobileAccount.ui \
     ../classes/gui/AnotherCash.ui \
     ../classes/gui/Cashing.ui \

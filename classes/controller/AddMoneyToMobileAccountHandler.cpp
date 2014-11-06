@@ -5,3 +5,13 @@ AddMoneyToMobileAccountHandler::AddMoneyToMobileAccountHandler(Controller &maste
 {
 
 }
+
+AddMoneyToMobileAccountHandler::~AddMoneyToMobileAccountHandler ()
+{
+
+}
+
+void AddMoneyToMobileAccountHandler::backspaceClicked ()
+{
+    _master.openWindow(Windows::ChooseAction);
+}

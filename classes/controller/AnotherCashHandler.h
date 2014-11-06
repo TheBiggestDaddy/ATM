@@ -10,7 +10,8 @@ class AnotherCashHandler: public ScreenHandler
 {
 public:
     AnotherCashHandler(class Controller& master);
-    ~AnotherCashHandler();
+    virtual ~AnotherCashHandler ();
+    virtual void backspaceClicked ();
 private:
     Controller& _master;
 };

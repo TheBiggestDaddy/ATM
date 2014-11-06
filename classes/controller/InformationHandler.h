@@ -9,7 +9,8 @@ class InformationHandler:public ScreenHandler
 {
 public:
     InformationHandler(class Controller& master);
-
+    virtual ~InformationHandler ();
+    virtual void backspaceClicked ();
 private:
     Controller& _master;
 };

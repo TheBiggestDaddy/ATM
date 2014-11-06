@@ -11,6 +11,7 @@ public:
     LoginScreenHandler(class Controller& master);
     virtual ~LoginScreenHandler ();
     virtual void okClicked ();
+    virtual void backspaceClicked ();
 private:
     Controller& _master;
 };

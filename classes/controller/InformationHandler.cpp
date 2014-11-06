@@ -5,3 +5,12 @@ InformationHandler::InformationHandler(Controller &master):
 {
 
 }
+
+InformationHandler::~InformationHandler ()
+{
+
+}
+void InformationHandler::backspaceClicked ()
+{
+    _master.openWindow(Windows::ChooseAction);
+}

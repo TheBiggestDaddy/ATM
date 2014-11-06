@@ -20,6 +20,8 @@ public:
     virtual void right2clicked ();
     virtual void right1clicked ();
 
+    virtual ~ChooseActionHandler ();
+    virtual void backspaceClicked ();
 private:
     Controller& _master;
 };
