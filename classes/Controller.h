@@ -6,6 +6,11 @@
 #include "gui/MainWindow.h"
 #include "gui/Windows.h"
 
+
+#include "controller/AddMoneyToMobileAccountHandler.h"
+#include "controller/AnotherCashHandler.h"
+#include "controller/CashingHandler.h"
+#include "controller/ChooseActionHandler.h"
 #include "controller/LoginScreenHandler.h"
 #include "controller/ScreenHandler.h"
 
@@ -13,6 +18,10 @@ class Controller: public QObject
 {
 public:
     friend class LoginScreenHandler;
+    friend class AddMoneyToMobileAccountHandler;
+    friend class AnotherCashHandler;
+    friend class CashingHandler;
+    friend class ChooseActionHandler;
 
     Controller(MainWindow& w);
 private:
@@ -34,7 +43,7 @@ private:
     void onRightButton2Clicked ();
     void onRightButton1Clicked ();
 
-    void setHandler(const Windows::Window& screen);
+    void openWindow(const Windows::Window& screen);
 };
 
 #endif // CONTROLLER_H

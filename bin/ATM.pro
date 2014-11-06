@@ -32,7 +32,14 @@ HEADERS += \
     ../classes/model/Date.h \
     ../classes/model/DebitAccount.h \
     ../classes/controller/ScreenHandler.h \
-    ../classes/controller/LoginScreenHandler.h
+    ../classes/controller/LoginScreenHandler.h \
+    ../classes/controller/AddMoneyToMobileAccountHandler.h \
+    ../classes/controller/AnotherCashHandler.h \
+    ../classes/controller/CashingHandler.h \
+    ../classes/controller/ChooseActionHandler.h \
+    ../classes/controller/InformationHandler.h \
+    ../classes/controller/LastOperationsHandler.h \
+    ../classes/controller/SendMoneyToAnotherCard.h
 
 SOURCES += \
     ../classes/Controller.cpp \
@@ -50,7 +57,14 @@ SOURCES += \
     ../classes/model/Date.cpp \
     ../classes/model/MainForKutsyk.cpp \
     ../classes/controller/ScreenHandler.cpp \
-    ../classes/controller/LoginScreenHandler.cpp
+    ../classes/controller/LoginScreenHandler.cpp \
+    ../classes/controller/AddMoneyToMobileAccountHandler.cpp \
+    ../classes/controller/AnotherCashHandler.cpp \
+    ../classes/controller/CashingHandler.cpp \
+    ../classes/controller/ChooseActionHandler.cpp \
+    ../classes/controller/InformationHandler.cpp \
+    ../classes/controller/LastOperationsHandler.cpp \
+    ../classes/controller/SendMoneyToAnotherCard.cpp
 
 FORMS += \
     ../classes/gui/aChooseAction.ui \

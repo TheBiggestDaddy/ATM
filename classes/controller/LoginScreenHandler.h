@@ -8,9 +8,11 @@
 class LoginScreenHandler: public ScreenHandler
 {
 public:
-    LoginScreenHandler(class Controller& c);
+    LoginScreenHandler(class Controller& master);
     virtual ~LoginScreenHandler ();
     virtual void okClicked ();
+private:
+    Controller& _master;
 };
 
 #endif // LOGINSCREENHANDLER_H

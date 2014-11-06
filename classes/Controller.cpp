@@ -83,3 +83,24 @@ void Controller::onRightButton1Clicked ()
 {
     _current_screen_handler->right1clicked();
 }
+
+void Controller::openWindow(const Windows::Window& screen)
+{
+    switch (screen)
+    {
+    case Windows::LoginScreen:
+    {
+        delete _current_screen_handler;
+        _current_screen_handler = new LoginScreenHandler(*this);
+        break;
+    }
+    case Windows::ChooseAction:
+    {
+        delete _current_screen_handler;
+        _current_screen_handler = new ChooseActionHandler(*this);
+        break;
+    }
+    default:
+        break;
+    }
+}
