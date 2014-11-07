@@ -12,6 +12,7 @@ public:
     AnotherCashHandler(class Controller& master);
     virtual ~AnotherCashHandler ();
     virtual void backspaceClicked ();
+    virtual void okClicked ();
 private:
     Controller& _master;
 };

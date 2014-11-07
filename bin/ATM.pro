@@ -39,7 +39,11 @@ HEADERS += \
     ../classes/controller/ChooseActionHandler.h \
     ../classes/controller/InformationHandler.h \
     ../classes/controller/LastOperationsHandler.h \
-    ../classes/controller/SendMoneyToAnotherCardHandler.h
+    ../classes/controller/SendMoneyToAnotherCardHandler.h \
+    ../classes/gui/SuccessScreen.h \
+    ../classes/controller/SuccessScreenHandler.h \
+    ../classes/gui/FailedScreen.h \
+    ../classes/controller/FailedScreenHandler.h
 
 SOURCES += \
     ../classes/Controller.cpp \
@@ -64,7 +68,11 @@ SOURCES += \
     ../classes/controller/ChooseActionHandler.cpp \
     ../classes/controller/InformationHandler.cpp \
     ../classes/controller/LastOperationsHandler.cpp \
-    ../classes/controller/SendMoneyToAnotherCardHandler.cpp
+    ../classes/controller/SendMoneyToAnotherCardHandler.cpp \
+    ../classes/gui/SuccessScreen.cpp \
+    ../classes/controller/SuccessScreenHandler.cpp \
+    ../classes/gui/FailedScreen.cpp \
+    ../classes/controller/FailedScreenHandler.cpp
 
 FORMS += \
     ../classes/gui/AddMoneyToMobileAccount.ui \
@@ -75,4 +83,6 @@ FORMS += \
     ../classes/gui/LastOperations.ui \
     ../classes/gui/LoginScreen.ui \
     ../classes/gui/MainWindow.ui \
-    ../classes/gui/SendMoneyToAnotherCard.ui
+    ../classes/gui/SendMoneyToAnotherCard.ui \
+    ../classes/gui/SuccessScreen.ui \
+    ../classes/gui/FailedScreen.ui

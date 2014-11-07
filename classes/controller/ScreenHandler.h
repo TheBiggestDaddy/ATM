@@ -1,6 +1,8 @@
 #ifndef SCREENHANDLER_H
 #define SCREENHANDLER_H
 
+#include <string>
+
 class ScreenHandler
 {
 public:
@@ -18,6 +20,9 @@ public:
     virtual void okClicked ();
     virtual void backspaceClicked ();
     virtual ~ScreenHandler() = 0{};
+
+protected:
+    bool isNumber(std::string& string);
 };
 
 #endif // SCREENHANDLER_H

@@ -25,7 +25,7 @@
   <property name="frameShadow">
    <enum>QFrame::Raised</enum>
   </property>
-  <widget class="QLineEdit" name="card_number_line">
+  <widget class="QLineEdit" name="card_number">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -33,7 +33,7 @@
     <rect>
      <x>300</x>
      <y>160</y>
-     <width>271</width>
+     <width>265</width>
      <height>41</height>
     </rect>
    </property>
@@ -88,7 +88,7 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Пін код:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="card_number_line_2">
+  <widget class="QLineEdit" name="pin">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -128,6 +128,44 @@
    </property>
    <property name="clearButtonEnabled">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>651</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Вітаємо в системі УКРОП, чоловіче&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="error">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>80</y>
+     <width>661</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; color:#ff0004;&quot;&gt;Ви ввели невірні дані. Спробуйте ще раз&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::AutoText</enum>
    </property>
   </widget>
  </widget>

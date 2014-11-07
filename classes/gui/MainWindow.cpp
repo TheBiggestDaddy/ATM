@@ -84,4 +84,8 @@ void MainWindow::addFrameChild(QFrame* frame)
     frame->show();
 }
 
+QFrame* MainWindow::getFrame ()
+{
+    return ui->frame;
+}
 

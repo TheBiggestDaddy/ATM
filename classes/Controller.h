@@ -17,6 +17,7 @@
 #include "controller/InformationHandler.h"
 #include "controller/LastOperationsHandler.h"
 #include "controller/SendMoneyToAnotherCardHandler.h"
+#include "controller/SuccessScreenHandler.h"
 
 class Controller: public QObject
 {
@@ -29,6 +30,7 @@ public:
     friend class InformationHandler;
     friend class LastOperationsHandler;
     friend class SendMoneyToAnotherCardHandler;
+    friend class SuccessScreenHandler;
 
     Controller(MainWindow& w);
 private:

@@ -1,6 +1,6 @@
 #include "ScreenHandler.h"
 #include <iostream>
-using namespace std;
+
 
 ScreenHandler::ScreenHandler()
 {
@@ -49,3 +49,20 @@ void ScreenHandler::backspaceClicked ()
 {
     std::cout << "Default halndler: backspace clicked" << std::endl;
 }
+
+ bool ScreenHandler::isNumber(std::string& string)
+ {
+     if(string.length() == 0)
+     {
+         return false;
+     }
+    for(size_t i = 0; i < string.size(); i++)
+    {
+        if(string.at(i) != '0')
+            if(string.at(i) < '1' || string.at(i) > '9')
+            {
+                return false;
+            }
+    }
+    return true;
+ }

@@ -17,6 +17,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void addFrameChild(QFrame* frame);
+    QFrame* getFrame ();
 
 signals:
     void signal_left_button_1_clicked (void);

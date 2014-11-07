@@ -9,7 +9,7 @@
 #include "gui/LastOperations.h"
 #include "gui/LoginScreen.h"
 #include "gui/SendMoneyToAnotherCard.h"
-
+#include "gui/SuccessScreen.h"
 #include <iostream>
 
 Controller::Controller(MainWindow& w):
@@ -142,6 +142,12 @@ void Controller::openWindow(const Windows::Window& screen)
     {
         _current_frame = new SendMoneyToAnotherCard ();
         _current_screen_handler = new SendMoneyToAnotherCardHandler (*this);
+        break;
+    }
+    case Windows::Success:
+    {
+        _current_frame = new SuccessScreen ();
+        _current_screen_handler = new SuccessScreenHandler (*this);
         break;
     }
     default:
