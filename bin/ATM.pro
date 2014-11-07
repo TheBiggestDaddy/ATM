@@ -43,7 +43,9 @@ HEADERS += \
     ../classes/gui/SuccessScreen.h \
     ../classes/controller/SuccessScreenHandler.h \
     ../classes/gui/FailedScreen.h \
-    ../classes/controller/FailedScreenHandler.h
+    ../classes/controller/FailedScreenHandler.h \
+    ../classes/gui/ContinueScreen.h \
+    ../classes/controller/ContinueScreenHandler.h
 
 SOURCES += \
     ../classes/Controller.cpp \
@@ -72,7 +74,9 @@ SOURCES += \
     ../classes/gui/SuccessScreen.cpp \
     ../classes/controller/SuccessScreenHandler.cpp \
     ../classes/gui/FailedScreen.cpp \
-    ../classes/controller/FailedScreenHandler.cpp
+    ../classes/controller/FailedScreenHandler.cpp \
+    ../classes/gui/ContinueScreen.cpp \
+    ../classes/controller/ContinueScreenHandler.cpp
 
 FORMS += \
     ../classes/gui/AddMoneyToMobileAccount.ui \
@@ -85,4 +89,5 @@ FORMS += \
     ../classes/gui/MainWindow.ui \
     ../classes/gui/SendMoneyToAnotherCard.ui \
     ../classes/gui/SuccessScreen.ui \
-    ../classes/gui/FailedScreen.ui
+    ../classes/gui/FailedScreen.ui \
+    ../classes/gui/ContinueScreen.ui

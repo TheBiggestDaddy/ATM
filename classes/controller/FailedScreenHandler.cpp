@@ -13,12 +13,13 @@ FailedScreenHandler::~FailedScreenHandler ()
 
 void FailedScreenHandler::backspaceClicked ()
 {
-    _master.openWindow(Windows::ChooseAction);
+    _master.openWindow(Windows::LoginScreen);
 }
 
 void FailedScreenHandler::right2clicked ()
 {
-    _master.openWindow(Windows::ChooseAction);
+    _master._password = std::string();
+    _master.openWindow(Windows::Continue);
 }
 
 void FailedScreenHandler::right1clicked ()

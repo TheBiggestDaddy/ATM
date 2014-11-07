@@ -15,7 +15,8 @@ namespace Windows
         MainWindow,
         SendMoneyToAnotherCard,
         Success,
-        Failed
+        Failed,
+        Continue
     };
 }
 #endif // WINDOWS_H

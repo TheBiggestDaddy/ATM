@@ -10,13 +10,18 @@
 #include "gui/LoginScreen.h"
 #include "gui/SendMoneyToAnotherCard.h"
 #include "gui/SuccessScreen.h"
+#include "gui/FailedScreen.h"
+#include "gui/ContinueScreen.h"
+
 #include <iostream>
 
 Controller::Controller(MainWindow& w):
     _window(w),
     _current_frame(new LoginScreen()),
     _state(Windows::LoginScreen),
-    _current_screen_handler(new LoginScreenHandler(*this))
+    _current_screen_handler(new LoginScreenHandler(*this)),
+    _login(),
+    _password()
 {
     _window.addFrameChild(_current_frame);
 
@@ -134,6 +139,8 @@ void Controller::openWindow(const Windows::Window& screen)
     }
     case Windows::LoginScreen:
     {
+        _login = std::string();
+        _password = std::string();
         _current_frame = new LoginScreen ();
         _current_screen_handler = new LoginScreenHandler (*this);
         break;
@@ -148,6 +155,18 @@ void Controller::openWindow(const Windows::Window& screen)
     {
         _current_frame = new SuccessScreen ();
         _current_screen_handler = new SuccessScreenHandler (*this);
+        break;
+    }
+    case Windows::Failed:
+    {
+        _current_frame = new FailedScreen ();
+        _current_screen_handler = new FailedScreenHandler (*this);
+        break;
+    }
+    case Windows::Continue:
+    {
+        _current_frame = new ContinueScreen ();
+        _current_screen_handler = new ContinueScreenHandler (*this);
         break;
     }
     default:

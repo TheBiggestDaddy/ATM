@@ -18,6 +18,8 @@
 #include "controller/LastOperationsHandler.h"
 #include "controller/SendMoneyToAnotherCardHandler.h"
 #include "controller/SuccessScreenHandler.h"
+#include "controller/FailedScreenHandler.h"
+#include "controller/ContinueScreenHandler.h"
 
 class Controller: public QObject
 {
@@ -31,9 +33,13 @@ public:
     friend class LastOperationsHandler;
     friend class SendMoneyToAnotherCardHandler;
     friend class SuccessScreenHandler;
+    friend class FailedScreenHandler;
+    friend class ContinueScreenHandler;
 
     Controller(MainWindow& w);
 private:
+    std::string _login;
+    std::string _password;
     ScreenHandler* _current_screen_handler;
     MainWindow& _window;
     QFrame* _current_frame;
