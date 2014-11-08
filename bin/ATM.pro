@@ -23,7 +23,6 @@ HEADERS += \
     ../classes/controller/LoginScreenHandler.h \
     ../classes/controller/ScreenHandler.h \
     ../classes/controller/SendMoneyToAnotherCardHandler.h \
-    ../classes/controller/SuccessScreenHandler.cpp.autosave \
     ../classes/controller/SuccessScreenHandler.h \
     ../classes/gui/AddMoneyToMobileAccount.h \
     ../classes/gui/AnotherCash.h \

@@ -13,11 +13,12 @@ SuccessScreenHandler::~SuccessScreenHandler ()
 
 void SuccessScreenHandler::backspaceClicked ()
 {
-    _master.openWindow(Windows::ChooseAction);
+    _master.openWindow(Windows::LoginScreen);
 }
 
 void SuccessScreenHandler::right2clicked ()
 {
+    _master._password = QString();
     _master.openWindow(Windows::Continue);
 }
 

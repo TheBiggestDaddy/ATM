@@ -18,7 +18,7 @@ void FailedScreenHandler::backspaceClicked ()
 
 void FailedScreenHandler::right2clicked ()
 {
-    _master._password = std::string();
+    _master._password = QString();
     _master.openWindow(Windows::Continue);
 }
 

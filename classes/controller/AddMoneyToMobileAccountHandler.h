@@ -13,6 +13,12 @@ public:
     virtual ~AddMoneyToMobileAccountHandler ();
     virtual void backspaceClicked ();
     virtual void okClicked ();
+
+    virtual void left3clicked ();
+    virtual void left2clicked ();
+
+    virtual void right3clicked ();
+    virtual void right2clicked ();
 private:
     Controller& _master;
 };

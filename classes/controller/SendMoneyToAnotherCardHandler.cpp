@@ -47,10 +47,20 @@ void SendMoneyToAnotherCardHandler::right2clicked ()
 void SendMoneyToAnotherCardHandler::okClicked ()
 {
     SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master._current_frame);
-    if(isNumber(screen->getCardNumberLine()->text().toStdString()) &&
-            isNumber(screen->getSummToTransferLine()->text().toStdString()))
+    QString card_to_recieve = screen->getCardNumberLine()->text();
+    QString amount = screen->getSummToTransferLine()->text();
+    if(isNumber(card_to_recieve.toStdString()) &&
+            isNumber(amount.toStdString()))
     {
-        _master.openWindow(Windows::Success);
+        if(_master._current_account->sendToAccount(card_to_recieve.toStdString(),
+                                                   Controller::convertToInt(amount.toStdString())))
+        {
+             _master.openWindow(Windows::Success);
+        }
+        else
+        {
+            _master.openWindow(Windows::Failed);
+        }
     }
     else
     {

@@ -23,9 +23,17 @@ void AnotherCashHandler::okClicked ()
 {
     std::cout << "AnotherCash halndler: ok clicked" << std::endl;
     AnotherCash* screen = static_cast<AnotherCash*>(_master._current_frame);
-    if(isNumber(screen->getSummLine()->text().toStdString()))
+    std::string summ = screen->getSummLine()->text().toStdString();
+    if(isNumber(summ))
     {
-        _master.openWindow(Windows::Success);
+        if(_master._current_account->withdrawFunds(Controller::convertToInt(summ)))
+        {
+            _master.openWindow(Windows::Success);
+        }
+        else
+        {
+            _master.openWindow(Windows::Failed);
+        }
     }
     else
     {

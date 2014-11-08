@@ -12,6 +12,7 @@
 #include "gui/SuccessScreen.h"
 #include "gui/FailedScreen.h"
 #include "gui/ContinueScreen.h"
+#include <sstream>
 
 #include <iostream>
 
@@ -21,7 +22,9 @@ Controller::Controller(MainWindow& w):
     _state(Windows::LoginScreen),
     _current_screen_handler(new LoginScreenHandler(*this)),
     _login(),
-    _password()
+    _password(),
+    _current_account(nullptr),
+    _UKROP_BANK()
 {
     _window.addFrameChild(_current_frame);
 
@@ -139,8 +142,8 @@ void Controller::openWindow(const Windows::Window& screen)
     }
     case Windows::LoginScreen:
     {
-        _login = std::string();
-        _password = std::string();
+        _login = QString();
+        _password = QString();
         _current_frame = new LoginScreen ();
         _current_screen_handler = new LoginScreenHandler (*this);
         break;
@@ -175,4 +178,32 @@ void Controller::openWindow(const Windows::Window& screen)
     }
 
     _window.addFrameChild (_current_frame);
+}
+bool Controller::isValidAccount()
+{
+    return _UKROP_BANK.isValidAccount(_login,_password);
+}
+
+Controller::~Controller()
+{
+    if(_current_account != nullptr)
+    {
+        delete _current_account;
+    }
+    if(_current_frame != nullptr)
+    {
+        delete _current_frame;
+    }
+    if(_current_screen_handler != nullptr)
+    {
+        delete _current_screen_handler;
+    }
+}
+int Controller::convertToInt(const std::string& s)
+{
+    stringstream ss;
+    ss << s;
+    int rez = 0;
+    ss >> rez;
+    return rez;
 }

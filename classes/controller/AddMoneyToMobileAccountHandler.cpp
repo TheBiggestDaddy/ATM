@@ -1,6 +1,7 @@
 #include "AddMoneyToMobileAccountHandler.h"
 
 #include <iostream>
+#include <QTimer>
 
 class AddMoneyToMobileAccount;
 
@@ -24,13 +25,47 @@ void AddMoneyToMobileAccountHandler::okClicked ()
 {
     std::cout << "AddMoneyToMobileAccount halndler: ok clicked" << std::endl;
     AddMoneyToMobileAccount* screen = static_cast<AddMoneyToMobileAccount*>(_master._current_frame);
-    if(isNumber(screen->getMobileNumberLine()->text().toStdString()) &&
-            isNumber(screen->getSummToTrunsferLine()->text().toStdString()))
+    QString mobile_number = screen->getMobileNumberLine()->text();
+    QString amount = screen->getSummToTrunsferLine()->text();
+    if(isNumber(mobile_number.toStdString()) &&
+            isNumber(amount.toStdString()))
     {
-        _master.openWindow(Windows::Success);
+        if(_master._current_account->sendToPhone(mobile_number.toStdString(),
+                                                 Controller::convertToInt(amount.toStdString())))
+        {
+             _master.openWindow(Windows::Success);
+        }
+        else
+        {
+            _master.openWindow(Windows::Failed);
+        }
     }
     else
     {
         screen->setErrorStatus(true);
     }
 }
+
+void AddMoneyToMobileAccountHandler::left3clicked ()
+{
+    AddMoneyToMobileAccount* screen = static_cast<AddMoneyToMobileAccount*>(_master._current_frame);
+    QTimer::singleShot(0, screen->getMobileNumberLine(), SLOT(setFocus()));
+}
+void AddMoneyToMobileAccountHandler::left2clicked ()
+{
+    AddMoneyToMobileAccount* screen = static_cast<AddMoneyToMobileAccount*>(_master._current_frame);
+    QTimer::singleShot(0, screen->getSummToTrunsferLine(), SLOT(setFocus()));
+}
+
+void AddMoneyToMobileAccountHandler::right3clicked ()
+{
+    AddMoneyToMobileAccount* screen = static_cast<AddMoneyToMobileAccount*>(_master._current_frame);
+    QTimer::singleShot(0, screen->getMobileNumberLine(), SLOT(setFocus()));
+}
+
+void AddMoneyToMobileAccountHandler::right2clicked ()
+{
+    AddMoneyToMobileAccount* screen = static_cast<AddMoneyToMobileAccount*>(_master._current_frame);
+    QTimer::singleShot(0, screen->getSummToTrunsferLine(), SLOT(setFocus()));
+}
+

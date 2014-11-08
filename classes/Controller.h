@@ -20,7 +20,8 @@
 #include "controller/SuccessScreenHandler.h"
 #include "controller/FailedScreenHandler.h"
 #include "controller/ContinueScreenHandler.h"
-
+#include "model/ATM.h"
+#include "model/Bank.h"
 class Controller: public QObject
 {
 public:
@@ -37,9 +38,10 @@ public:
     friend class ContinueScreenHandler;
 
     Controller(MainWindow& w);
+    ~Controller();
 private:
-    std::string _login;
-    std::string _password;
+    QString _login;
+    QString _password;
     ScreenHandler* _current_screen_handler;
     MainWindow& _window;
     QFrame* _current_frame;
@@ -59,6 +61,11 @@ private:
     void onRightButton1Clicked ();
 
     void openWindow(const Windows::Window& screen);
+    const Bank _UKROP_BANK;
+    ATM* _current_account;
+    bool isValidAccount();
+    //Converting int to string
+    static int convertToInt(const std::string& s);
 };
 
 #endif // CONTROLLER_H

@@ -15,9 +15,20 @@ void LoginScreenHandler::okClicked ()
 {
     std::cout << "Login Screen halndler: ok clicked" << std::endl;
     LoginScreen* screen = static_cast<LoginScreen*>(_master._current_frame);
-    if(isNumber(screen->getCardNumberLine()->text().toStdString()) &&
-            isNumber(screen->getPinLine()->text().toStdString()))
+
+    _master._login = screen->getCardNumberLine()->text();
+    _master._password = screen->getPinLine()->text();
+
+    if(isNumber(_master._login.toStdString()) &&
+            isNumber(_master._password.toStdString())&&
+            _master.isValidAccount())
     {
+        if(_master._current_account != nullptr)
+        {
+            delete _master._current_account;
+        }
+        _master._current_account = new ATM(_master._UKROP_BANK,_master._login.toStdString(),
+                                           _master._password.toStdString());
         _master.openWindow(Windows::ChooseAction);
     }
     else

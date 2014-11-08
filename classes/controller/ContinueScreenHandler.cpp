@@ -18,8 +18,19 @@ void ContinueScreenHandler::backspaceClicked ()
 void ContinueScreenHandler::okClicked()
 {
     ContinueScreen* screen = static_cast<ContinueScreen*>(_master._current_frame);
-    if(isNumber(screen->getPinLine()->text().toStdString()))
+
+    _master._password = screen->getPinLine()->text();
+
+    if(isNumber(_master._login.toStdString()) &&
+            isNumber(_master._password.toStdString())&&
+            _master.isValidAccount())
     {
+        if(_master._current_account != nullptr)
+        {
+            delete _master._current_account;
+        }
+        _master._current_account = new ATM(_master._UKROP_BANK,_master._login.toStdString(),
+                                           _master._password.toStdString());
         _master.openWindow(Windows::ChooseAction);
     }
     else
