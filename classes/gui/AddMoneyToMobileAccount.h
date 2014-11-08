@@ -2,6 +2,7 @@
 #define ADDMONEYTOMOBILEACCOUNT_H
 
 #include <QFrame>
+#include <QLineEdit>
 
 namespace Ui {
 class AddMoneyToMobileAccount;
@@ -14,6 +15,9 @@ class AddMoneyToMobileAccount : public QFrame
 public:
     explicit AddMoneyToMobileAccount(QWidget *parent = 0);
     ~AddMoneyToMobileAccount();
+    QLineEdit* getMobileNumberLine();
+    QLineEdit* getSummToTrunsferLine();
+    void setErrorStatus(bool status);
 
 private:
     Ui::AddMoneyToMobileAccount *ui;

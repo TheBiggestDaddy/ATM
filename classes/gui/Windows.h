@@ -13,7 +13,10 @@ namespace Windows
         Information,
         LastOperations,
         MainWindow,
-        SendMoneyToAnotherCard
+        SendMoneyToAnotherCard,
+        Success,
+        Failed,
+        Continue
     };
 }
 #endif // WINDOWS_H
