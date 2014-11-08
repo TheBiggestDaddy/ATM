@@ -175,6 +175,14 @@ Account& Bank::getAccount(string login, string  password) const
             return *(_accounts[i]);
 };
 
+bool Bank::accountExist(string login) const
+{
+    for(int i=0;i<_accounts.size();++i)
+        if(_accounts[i]->getLogin() == login)
+            return true;
+    return false;
+}
+
 Account& Bank::getAccountForTransaction(string login) const
 {
     for(int i=0;i<_accounts.size();++i)
@@ -184,6 +192,9 @@ Account& Bank::getAccountForTransaction(string login) const
 
 bool Bank::makeTransaction(Account& from, const string& to, int quantity) const
 {
+    if(!accountExist(to))
+        return false;
+
     if(from.getMoney(quantity))
     {
         getAccountForTransaction(to).putMoney(quantity);

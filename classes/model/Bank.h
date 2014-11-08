@@ -29,6 +29,7 @@ private:
     void fillAccounts();
     void getAccountsFromFile(QMap<QString, QString> &usersMap);
     void getAccountData(QString, QString);
+    bool accountExist(string login) const;
 
     void fillCustomers();
 
