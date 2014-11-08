@@ -1,0 +1,25 @@
+#ifndef SUCCESSSCREEN_H
+#define SUCCESSSCREEN_H
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
+#include <QFrame>
+
+namespace Ui {
+class SuccessScreen;
+}
+
+class SuccessScreen : public QFrame
+{
+    Q_OBJECT
+
+public:
+    explicit SuccessScreen(QWidget *parent = 0);
+    ~SuccessScreen();
+
+private:
+    Ui::SuccessScreen *ui;
+};
+
+#endif // SUCCESSSCREEN_H

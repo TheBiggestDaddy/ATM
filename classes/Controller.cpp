@@ -1,3 +1,7 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include <QApplication>
 #include "Controller.h"
 #include "gui/MainWindow.h"

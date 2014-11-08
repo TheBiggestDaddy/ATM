@@ -1,0 +1,25 @@
+#ifndef WINDOWS_H
+#define WINDOWS_H
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
+namespace Windows
+{
+    enum Window
+    {
+        LoginScreen = 1,
+        AddMoneyToMobileAccount,
+        AnotherCash,
+        Cashing,
+        ChooseAction,
+        Information,
+        LastOperations,
+        MainWindow,
+        SendMoneyToAnotherCard,
+        Success,
+        Failed,
+        Continue
+    };
+}
+#endif // WINDOWS_H

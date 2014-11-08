@@ -1,0 +1,18 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
+#include "ChooseAction.h"
+#include "ui_ChooseAction.h"
+
+ChooseAction::ChooseAction(QWidget *parent) :
+    QFrame(parent),
+    ui(new Ui::ChooseAction)
+{
+    ui->setupUi(this);
+}
+
+ChooseAction::~ChooseAction()
+{
+    delete ui;
+}

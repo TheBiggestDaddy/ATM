@@ -22,6 +22,10 @@
 #include "controller/ContinueScreenHandler.h"
 #include "model/ATM.h"
 #include "model/Bank.h"
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 class Controller: public QObject
 {
 public:
