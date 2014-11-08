@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int mainForKutsyk()
+int mainKutsyk()
 {
     Bank b;
     b.show();
