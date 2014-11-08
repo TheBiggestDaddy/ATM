@@ -130,7 +130,7 @@ void Controller::openWindow(const Windows::Window& screen)
     }
     case Windows::Information:
     {
-        _current_frame = new Information ();
+        _current_frame = new Information (std::to_string(_current_account->leftMoney()));
         _current_screen_handler = new InformationHandler (*this);
         break;
     }
