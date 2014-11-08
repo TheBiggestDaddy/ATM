@@ -23,14 +23,13 @@ HEADERS += \
     ../classes/gui/MainWindow.h \
     ../classes/gui/SendMoneyToAnotherCard.h \
     ../classes/gui/Windows.h \
-    ../classes/model/Account.h \
     ../classes/model/ATM.h \
-    ../classes/model/ATMTransanction.h \
     ../classes/model/Bank.h \
     ../classes/model/CreditAccount.h \
     ../classes/model/Customer.h \
     ../classes/model/Date.h \
-    ../classes/model/DebitAccount.h
+    ../classes/model/DebitAccount.h \
+    ../classes/model/Account.h
 
 SOURCES += \
     ../classes/Controller.cpp \
@@ -46,7 +45,11 @@ SOURCES += \
     ../classes/gui/SendMoneyToAnotherCard.cpp \
     ../classes/model/Bank.cpp \
     ../classes/model/Date.cpp \
-    ../classes/model/MainForKutsyk.cpp
+    ../classes/model/MainForKutsyk.cpp \
+    ../classes/model/DebitAccount.cpp \
+    ../classes/model/CreditAccount.cpp \
+    ../classes/model/Customer.cpp \
+    ../classes/model/ATM.cpp
 
 FORMS += \
     ../classes/gui/aChooseAction.ui \

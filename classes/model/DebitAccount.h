@@ -12,17 +12,46 @@
 
 using namespace std;
 
-class DebitAccount: protected Account
+class Customer;
+class DebitAccount: public Account
 {
 private:
-    Customer* _owner;
-	DebitAccount(const DebitAccount&);
+    Customer *_owner;
+    int _leftAmount;
+
+    vector<string> history;
+
+    string _accountNumber;
+    string _password;
+
+    DebitAccount();
+    DebitAccount(const DebitAccount&);
 	DebitAccount& operator=(const DebitAccount&);
 public:
-	DebitAccount();
+    DebitAccount(Customer&, string, string);
 	~DebitAccount();
 
-	void getMoney(int quantity);
-	void putMOney(int quantity);
-	long checkBalance();
+    /*
+     * getMoney(int quantity)
+     * quantity - amount of money that will be getted
+     * return:
+     *          true - if transaction was done
+     *          false - if transaction was not done
+     */
+    bool getMoney(int quantity);
+
+    /*
+     * putMOney(int quantity)
+     * quantity - amount of money that will be inserted
+     * return:
+     *          true - if transaction was done
+     *          false - if transaction was not done
+     */
+    bool putMoney(int quantity);
+
+    // show balance
+    inline const int checkBalance() const { return _leftAmount; };
+
+    inline const string& getLogin() { return _accountNumber; };
+    inline const string& getPassword() { return _password; };
 };

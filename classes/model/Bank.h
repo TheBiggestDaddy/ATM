@@ -15,24 +15,35 @@
 #include <QString>
 #include <QMap>
 #include "Account.h"
+#include "Customer.h"
+#include "ATMTransanction.h"
 
 using namespace std;
 
 class Bank
 {
 private:
-    static vector<Account> _acounts;
-
-    Bank(const Bank&);
-    Bank& operator=(const Bank&);
+    vector<Account*> _accounts;
+    vector<Customer*> _customers;
 
     void fillAccounts();
     void getAccountsFromFile(QMap<QString, QString> &usersMap);
     void getAccountData(QString, QString);
 
+    void fillCustomers();
+
+    Bank(const Bank&);
+    Bank& operator=(const Bank&);
+    Customer& getCustomer(string, string, string);
+
 public:
     Bank();
     ~Bank();
 
-    static bool isValidAccount(QString login, QString password);
+    bool isValidAccount(QString login, QString password) const;
+    bool makeTransaction(Account&, const string& , int) const;
+
+    Account& getAccount(string login, string  password) const;
+    Account& getAccountForTransaction(string login) const;
+    void show() const;
 };

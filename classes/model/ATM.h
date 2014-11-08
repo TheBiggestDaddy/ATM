@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include "Bank.h"
 #include "Account.h"
 
 using namespace std;
@@ -14,26 +15,20 @@ using namespace std;
 class ATM
 {
 private:
-	string _cardNumber;
-	int _cardPassword;
-	Account* _account;
+    const Bank* _bank;
+    Account* _account;
 
 	ATM(const ATM&);
 	ATM& operator=(const ATM&);
 
-	void getClientData(string _number, int _password);	
-
 public:
-	ATM();
+    ATM(const Bank&, const string& login, const string& password);
 	~ATM();	
 
-	void checkClientPassword();
+    inline bool withdrawFunds(int _quantity) { return _account->getMoney(_quantity); };
+    inline int leftMoney() { return _account->checkBalance(); };
 
-	void withdrawing(int _quantity);
-	void sendToAccount(string _number);
-	void sendToPhone(string _phoneNumber);
-	void getInfo();
-	void history();
+    bool sendToPhone(string _phoneNumber, int _quantity) { return _account->getMoney(_quantity); };
 
-	void checkIfaccountExist(string _number);
+    bool sendToAccount(const string& accountNumber, int amount);
 };
