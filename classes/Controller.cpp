@@ -140,7 +140,7 @@ void Controller::openWindow(const Windows::Window& screen)
     }
     case Windows::LastOperations:
     {
-        _current_frame = new LastOperations ();
+        _current_frame = new LastOperations (nullptr,_current_account->getHistory());
         _current_screen_handler = new LastOperationsHandler (*this);
         break;
     }
