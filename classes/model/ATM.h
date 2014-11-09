@@ -31,4 +31,6 @@ public:
     bool sendToPhone(string _phoneNumber, int _quantity) { return _account->getMoney(_quantity); };
 
     bool sendToAccount(const string& accountNumber, int amount);
+
+    vector<string>& getHistory();
 };

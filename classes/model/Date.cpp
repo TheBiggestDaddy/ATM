@@ -67,14 +67,11 @@ void Date::setYear(int y)
 
 void Date::setDefault()
 {
-// Створення указника на сьогодні
    struct tm* today=new tm;
-// Обробка таймера й ініціалізація поточного дня
    time_t timer;
    time(&timer);
    today=gmtime(&timer);
 
-// Вибір дня, місяця та року
    defaultDate._day=today->tm_mday;
    defaultDate._month=++(today->tm_mon);
    defaultDate._year=today->tm_year+=1900;
@@ -246,6 +243,12 @@ bool Date::leapYear(int y)
 void Date::showDefault()
 {
 	 cout<<defaultDate;
+}
+
+
+string Date::getDefault()
+{
+     return "Date: "+to_string(defaultDate.day())+":"+defaultDate.getMonthName()+":"+to_string(defaultDate.year());
 }
 
 ostream& operator<<(ostream& os, const Date& d)

@@ -18,8 +18,9 @@ class DebitAccount: public Account
 private:
     Customer *_owner;
     int _leftAmount;
+    Date _date;
 
-    vector<string> history;
+    vector<string> _history;
 
     string _accountNumber;
     string _password;
@@ -48,6 +49,11 @@ public:
      *          false - if transaction was not done
      */
     bool putMoney(int quantity);
+
+
+    void addActionToHistory(const string& action);
+
+    inline vector<string>& getHistory() { return _history; };
 
     // show balance
     inline const int checkBalance() const { return _leftAmount; };

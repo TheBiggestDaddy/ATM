@@ -19,6 +19,8 @@ public:
     virtual const string& getLogin() = 0;
     virtual const string& getPassword() = 0;
 
+    virtual inline vector<string>& getHistory() = 0;
+
     virtual bool getMoney(int quantity) = 0;
     virtual bool putMoney(int quantity) = 0;
     virtual inline const int checkBalance() const = 0;

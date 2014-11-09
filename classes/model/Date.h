@@ -36,6 +36,7 @@ void setYear(int);
 static void setDefault(int, Month, int);
 static void setDefault();
 static void showDefault();
+static string getDefault();
 
 const Date& operator++();
 const Date  operator++(int);

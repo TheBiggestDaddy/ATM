@@ -18,8 +18,9 @@ private:
     Customer *_owner;
     int _gettedMoney;
     int _limit;
+    Date _date;
 
-    vector<string> history;
+    vector<string> _history;
 
     string _accountNumber;
     string _password;
@@ -48,6 +49,10 @@ public:
      *          false - if transaction was not done
      */
     bool putMoney(int quantity);
+
+    void addActionToHistory(const string& action);
+
+    inline vector<string>& getHistory() { return _history; };
 
     // show balance
     inline const int checkBalance() const { return (_limit - _gettedMoney); };

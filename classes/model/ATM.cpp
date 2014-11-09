@@ -30,3 +30,8 @@ bool ATM::sendToAccount(const string& accountNumber, int amount)
 {
     return _bank->makeTransaction(*_account, accountNumber, amount);
 };
+
+vector<string>& ATM::getHistory()
+{
+    return _account->getHistory();
+};
