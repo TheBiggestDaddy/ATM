@@ -21,9 +21,25 @@ public:
 
     virtual inline vector<string>& getHistory() = 0;
 
-    virtual bool getMoney(int quantity) = 0;
-    virtual bool putMoney(int quantity) = 0;
-    virtual inline const int checkBalance() const = 0;
-
-
+    virtual bool getMoney(size_t quantity) = 0;
+    virtual bool putMoney(size_t quantity) = 0;
+    virtual inline const size_t checkBalance() const = 0;
 };
+
+class BadAccount
+{
+private:
+    string _problem;
+public:
+    BadAccount(string problem = "Bad accont")
+        :_problem(problem)
+    {};
+    ~BadAccount() {};
+    string getProblem() { return _problem; };
+};
+
+//ostream& operator<<(ostream& os, BadAccount& bad)
+//{
+//    os<<bad.getProblem();
+//    return os;
+//};

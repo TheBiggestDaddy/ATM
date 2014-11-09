@@ -11,7 +11,7 @@
 
 using namespace std;
 
-CreditAccount::CreditAccount(Customer& c, int limit, string login, string pass)
+CreditAccount::CreditAccount(Customer& c, size_t limit, string login, string pass)
     :_owner(&c),
       _limit(limit),
      _gettedMoney(0),
@@ -27,7 +27,7 @@ CreditAccount::~CreditAccount()
     _owner = 0;
 };
 
-bool CreditAccount::getMoney(int quantity)
+bool CreditAccount::getMoney(size_t quantity)
 {
     if((_limit - _gettedMoney)>0)
     {
@@ -37,7 +37,7 @@ bool CreditAccount::getMoney(int quantity)
     }else return false;
 };
 
-bool CreditAccount::putMoney(int quantity)
+bool CreditAccount::putMoney(size_t quantity)
 {    
     addActionToHistory("Put money: "+_date.getDefault()+" - "+to_string(quantity));
     _gettedMoney-=quantity;

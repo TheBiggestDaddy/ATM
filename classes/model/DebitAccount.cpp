@@ -27,7 +27,7 @@ DebitAccount::~DebitAccount()
     _owner = 0;
 };
 
-bool DebitAccount::getMoney(int quantity)
+bool DebitAccount::getMoney(size_t quantity)
 {
     if(_leftAmount>quantity)
     {
@@ -37,7 +37,7 @@ bool DebitAccount::getMoney(int quantity)
     }else return false;
 };
 
-bool DebitAccount::putMoney(int quantity)
+bool DebitAccount::putMoney(size_t quantity)
 {
     addActionToHistory("Put money: "+_date.getDefault()+" - "+to_string(quantity));
     if(_leftAmount += quantity)

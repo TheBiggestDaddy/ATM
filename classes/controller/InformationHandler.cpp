@@ -1,3 +1,7 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "InformationHandler.h"
 
 InformationHandler::InformationHandler(Controller &master):

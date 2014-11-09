@@ -17,7 +17,7 @@ class DebitAccount: public Account
 {
 private:
     Customer *_owner;
-    int _leftAmount;
+    size_t _leftAmount;
     Date _date;
 
     vector<string> _history;
@@ -33,22 +33,22 @@ public:
 	~DebitAccount();
 
     /*
-     * getMoney(int quantity)
+     * getMoney(size_t quantity)
      * quantity - amount of money that will be getted
      * return:
      *          true - if transaction was done
      *          false - if transaction was not done
      */
-    bool getMoney(int quantity);
+    bool getMoney(size_t quantity);
 
     /*
-     * putMOney(int quantity)
+     * putMOney(size_t quantity)
      * quantity - amount of money that will be inserted
      * return:
      *          true - if transaction was done
      *          false - if transaction was not done
      */
-    bool putMoney(int quantity);
+    bool putMoney(size_t quantity);
 
 
     void addActionToHistory(const string& action);
@@ -56,7 +56,7 @@ public:
     inline vector<string>& getHistory() { return _history; };
 
     // show balance
-    inline const int checkBalance() const { return _leftAmount; };
+    inline const size_t checkBalance() const { return _leftAmount; };
 
     inline const string& getLogin() { return _accountNumber; };
     inline const string& getPassword() { return _password; };

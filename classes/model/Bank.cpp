@@ -17,15 +17,15 @@ Bank::Bank()
 
 Bank::~Bank()
 {
-    for(int i=0;i<_accounts.size();++i)
+    for(size_t i=0;i<_accounts.size();++i)
         delete _accounts[i];
-    for(int i=0;i<_customers.size();++i)
+    for(size_t i=0;i<_customers.size();++i)
         delete _customers[i];
 };
 
 void Bank::fillCustomers()
 {
-    for(int i=1;i<6;++i)
+    for(size_t i=1;i<6;++i)
     {
         ifstream usersFile ("customers/"+to_string(i)+".txt");
         if (usersFile.is_open())
@@ -99,7 +99,7 @@ void Bank::getAccountData(QString login, QString pass)
         if(type == "D")
         {
             cus->addDebitAccount(login.toStdString(), pass.toStdString());
-            int moneyAmount(atoi(money.toStdString().c_str()));
+            size_t moneyAmount(atoi(money.toStdString().c_str()));
             cus->getDebitAccount().putMoney(moneyAmount);
             _accounts.push_back(&(cus->getDebitAccount()));
         }
@@ -109,8 +109,8 @@ void Bank::getAccountData(QString login, QString pass)
             getline(usersFile,line);
             gotMoney.append(line.c_str());
             gotMoney.replace(0,3,"");
-            int limit(atoi(money.toStdString().c_str()));
-            int getted(atoi(gotMoney.toStdString().c_str()));
+            size_t limit(atoi(money.toStdString().c_str()));
+            size_t getted(atoi(gotMoney.toStdString().c_str()));
 
             cus->addCreditAccount(limit, login.toStdString(), pass.toStdString());
             cus->getCreditAccount().getMoney(getted);
@@ -124,11 +124,12 @@ void Bank::getAccountData(QString login, QString pass)
 
 Customer& Bank::getCustomer(string name, string surname, string address)
 {
-    for(int i=0;i<_customers.size();++i)
+    for(size_t i=0;i<_customers.size();++i)
         if(_customers[i]->name() == name
            && _customers[i]->surname() == surname
            && _customers[i]->address() == address)
             return *_customers[i];
+    throw new BadAccount("Customer doesn't exist");
 };
 
 void Bank::getAccountsFromFile(QMap<QString, QString> &usersMap)
@@ -160,7 +161,7 @@ void Bank::getAccountsFromFile(QMap<QString, QString> &usersMap)
 
 bool Bank::isValidAccount(QString login, QString password) const
 {
-    for(int i=0;i<_accounts.size();++i)
+    for(size_t i=0;i<_accounts.size();++i)
         if(_accounts[i]->getLogin() == login.toStdString()
                 && _accounts[i]->getPassword() == password.toStdString())
             return true;
@@ -169,15 +170,16 @@ bool Bank::isValidAccount(QString login, QString password) const
 
 Account& Bank::getAccount(string login, string  password) const
 {
-    for(int i=0;i<_accounts.size();++i)
+    for(size_t i=0;i<_accounts.size();++i)
         if(_accounts[i]->getLogin() == login
                 && _accounts[i]->getPassword() == password)
             return *(_accounts[i]);
+    throw new BadAccount("Account doesn't exist");
 };
 
 bool Bank::accountExist(string login) const
 {
-    for(int i=0;i<_accounts.size();++i)
+    for(size_t i=0;i<_accounts.size();++i)
         if(_accounts[i]->getLogin() == login)
             return true;
     return false;
@@ -185,12 +187,13 @@ bool Bank::accountExist(string login) const
 
 Account& Bank::getAccountForTransaction(string login) const
 {
-    for(int i=0;i<_accounts.size();++i)
+    for(size_t i=0;i<_accounts.size();++i)
         if(_accounts[i]->getLogin() == login)
             return *(_accounts[i]);
+    throw new BadAccount("Account doesn't exist");
 };
 
-bool Bank::makeTransaction(Account& from, const string& to, int quantity) const
+bool Bank::makeTransaction(Account& from, const string& to, size_t quantity) const
 {
     if(!accountExist(to))
         return false;
@@ -206,11 +209,11 @@ bool Bank::makeTransaction(Account& from, const string& to, int quantity) const
 void Bank::show() const
 {
     cout<<"CUSTOMERS: "<<endl;
-    for(int i=0;i<_customers.size();++i)
+    for(size_t i=0;i<_customers.size();++i)
         cout<<"Customer: "<<i<<": "<<_customers[i]->name()<<" "<<
               _customers[i]->surname()<<" "<<_customers[i]->address()<<endl;
     cout<<"------------"<<endl;
     cout<<"ACCOUNTS: "<<endl;
-    for(int i=0;i<_accounts.size();++i)
+    for(size_t i=0;i<_accounts.size();++i)
         cout<<"Account: "<<i<<": "<<_accounts[i]->checkBalance()<<endl;
 }
