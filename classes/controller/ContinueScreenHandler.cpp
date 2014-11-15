@@ -1,3 +1,7 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "ContinueScreenHandler.h"
 
 #include "../gui/ContinueScreen.h"
@@ -17,20 +21,11 @@ void ContinueScreenHandler::backspaceClicked ()
 
 void ContinueScreenHandler::okClicked()
 {
-    ContinueScreen* screen = static_cast<ContinueScreen*>(_master._current_frame);
+    ContinueScreen* screen = static_cast<ContinueScreen*>(_master.getCurrentFrame());
 
-    _master._password = screen->getPinLine()->text();
 
-    if(isNumber(_master._login.toStdString()) &&
-            isNumber(_master._password.toStdString())&&
-            _master.isValidAccount())
+    if(_master.confirmPassword(screen->getPinLine()->text()))
     {
-        if(_master._current_account != nullptr)
-        {
-            delete _master._current_account;
-        }
-        _master._current_account = new ATM(_master._UKROP_BANK,_master._login.toStdString(),
-                                           _master._password.toStdString());
         _master.openWindow(Windows::ChooseAction);
     }
     else

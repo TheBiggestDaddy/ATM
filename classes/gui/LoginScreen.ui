@@ -33,7 +33,7 @@
     <rect>
      <x>300</x>
      <y>160</y>
-     <width>265</width>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
@@ -46,10 +46,10 @@
     <string notr="true">background-color: rgb(255, 255, 255)</string>
    </property>
    <property name="text">
-    <string/>
+    <string>132456789</string>
    </property>
    <property name="maxLength">
-    <number>16</number>
+    <number>9</number>
    </property>
   </widget>
   <widget class="QLabel" name="label">

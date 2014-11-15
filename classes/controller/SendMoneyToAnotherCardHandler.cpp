@@ -1,3 +1,8 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
+
 #include "SendMoneyToAnotherCardHandler.h"
 
 #include "../gui/SendMoneyToAnotherCard.h"
@@ -20,33 +25,32 @@ void SendMoneyToAnotherCardHandler::backspaceClicked ()
 }
 
 
-
 void SendMoneyToAnotherCardHandler::left3clicked ()
 {
-    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master._current_frame);
+    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master.getCurrentFrame());
     QTimer::singleShot(0, screen->getCardNumberLine(), SLOT(setFocus()));
 }
 void SendMoneyToAnotherCardHandler::left2clicked ()
 {
-    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master._current_frame);
+    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master.getCurrentFrame());
     QTimer::singleShot(0, screen->getSummToTransferLine(), SLOT(setFocus()));
 }
 
 void SendMoneyToAnotherCardHandler::right3clicked ()
 {
-    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master._current_frame);
+    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master.getCurrentFrame());
     QTimer::singleShot(0, screen->getCardNumberLine(), SLOT(setFocus()));
 }
 
 void SendMoneyToAnotherCardHandler::right2clicked ()
 {
-    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master._current_frame);
+    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master.getCurrentFrame());
     QTimer::singleShot(0, screen->getSummToTransferLine(), SLOT(setFocus()));
 }
 
 void SendMoneyToAnotherCardHandler::okClicked ()
 {
-    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master._current_frame);
+    SendMoneyToAnotherCard* screen = static_cast<SendMoneyToAnotherCard*>(_master.getCurrentFrame());
     QString card_to_recieve = screen->getCardNumberLine()->text();
     QString amount = screen->getSummToTransferLine()->text();
     if(isNumber(card_to_recieve.toStdString()) &&

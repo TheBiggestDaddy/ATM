@@ -2,7 +2,10 @@
 
 #include <iostream>
 #include <QTimer>
-
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 class AddMoneyToMobileAccount;
 
 AddMoneyToMobileAccountHandler::AddMoneyToMobileAccountHandler(Controller &master):
@@ -24,7 +27,7 @@ void AddMoneyToMobileAccountHandler::backspaceClicked ()
 void AddMoneyToMobileAccountHandler::okClicked ()
 {
     std::cout << "AddMoneyToMobileAccount halndler: ok clicked" << std::endl;
-    AddMoneyToMobileAccount* screen = static_cast<AddMoneyToMobileAccount*>(_master._current_frame);
+    AddMoneyToMobileAccount* screen = static_cast<AddMoneyToMobileAccount*>(_master.getCurrentFrame());
     QString mobile_number = screen->getMobileNumberLine()->text();
     QString amount = screen->getSummToTrunsferLine()->text();
     if(isNumber(mobile_number.toStdString()) &&

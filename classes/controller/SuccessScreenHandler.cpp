@@ -1,3 +1,7 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "SuccessScreenHandler.h"
 
 SuccessScreenHandler::SuccessScreenHandler(Controller& master):
@@ -18,7 +22,7 @@ void SuccessScreenHandler::backspaceClicked ()
 
 void SuccessScreenHandler::right2clicked ()
 {
-    _master._password = QString();
+    _master.clearPassword();
     _master.openWindow(Windows::Continue);
 }
 

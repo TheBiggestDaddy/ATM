@@ -1,6 +1,9 @@
 #ifndef LASTOPERATIONSHANDLER_H
 #define LASTOPERATIONSHANDLER_H
-
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "ScreenHandler.h"
 
 #include "../Controller.h"
@@ -11,6 +14,7 @@ public:
     LastOperationsHandler(class Controller& master);
     virtual ~LastOperationsHandler ();
     virtual void backspaceClicked ();
+    virtual void okClicked();
 private:
     Controller& _master;
 };

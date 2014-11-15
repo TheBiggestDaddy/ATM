@@ -29,20 +29,19 @@
 class Controller: public QObject
 {
 public:
-    friend class LoginScreenHandler;
-    friend class AddMoneyToMobileAccountHandler;
-    friend class AnotherCashHandler;
     friend class CashingHandler;
-    friend class ChooseActionHandler;
-    friend class InformationHandler;
-    friend class LastOperationsHandler;
+    friend class AnotherCashHandler;
+    friend class AddMoneyToMobileAccountHandler;
     friend class SendMoneyToAnotherCardHandler;
-    friend class SuccessScreenHandler;
-    friend class FailedScreenHandler;
-    friend class ContinueScreenHandler;
 
     Controller(MainWindow& w);
     ~Controller();
+
+    void openWindow(const Windows::Window& screen);
+    QFrame* getCurrentFrame() const;
+    void clearPassword();
+    void setLogin(const QString login);
+    bool confirmPassword(const QString password);
 private:
     QString _login;
     QString _password;
@@ -64,7 +63,6 @@ private:
     void onRightButton2Clicked ();
     void onRightButton1Clicked ();
 
-    void openWindow(const Windows::Window& screen);
     const Bank _UKROP_BANK;
     ATM* _current_account;
     bool isValidAccount();

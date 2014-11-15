@@ -25,7 +25,7 @@ LastOperations::LastOperations(QWidget *parent, std::vector<std::string> operati
     {
         while(operations.size() < 5)
         {
-            operations.push_back(std::string());
+            operations.insert(operations.begin(),std::string());
         }
         int last = operations.size();
         setTextAndAligment(ui->operation_1,operations[--last]);

@@ -1,5 +1,8 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "CashingHandler.h"
-
 
 CashingHandler::CashingHandler(Controller& master):
     _master(master)

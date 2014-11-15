@@ -1,3 +1,7 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "AnotherCashHandler.h"
 #include <iostream>
 
@@ -22,7 +26,7 @@ void AnotherCashHandler::backspaceClicked ()
 void AnotherCashHandler::okClicked ()
 {
     std::cout << "AnotherCash halndler: ok clicked" << std::endl;
-    AnotherCash* screen = static_cast<AnotherCash*>(_master._current_frame);
+    AnotherCash* screen = static_cast<AnotherCash*>(_master.getCurrentFrame());
     std::string summ = screen->getSummLine()->text().toStdString();
     if(isNumber(summ))
     {

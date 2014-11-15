@@ -1,3 +1,7 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 
 #include "LoginScreenHandler.h"
 #include "../gui/LoginScreen.h"
@@ -14,21 +18,12 @@ LoginScreenHandler::LoginScreenHandler(Controller &master):
 void LoginScreenHandler::okClicked ()
 {
     std::cout << "Login Screen halndler: ok clicked" << std::endl;
-    LoginScreen* screen = static_cast<LoginScreen*>(_master._current_frame);
+    LoginScreen* screen = static_cast<LoginScreen*>(_master.getCurrentFrame());
 
-    _master._login = screen->getCardNumberLine()->text();
-    _master._password = screen->getPinLine()->text();
+    _master.setLogin(screen->getCardNumberLine()->text());
 
-    if(isNumber(_master._login.toStdString()) &&
-            isNumber(_master._password.toStdString())&&
-            _master.isValidAccount())
+    if(_master.confirmPassword(screen->getPinLine()->text()))
     {
-        if(_master._current_account != nullptr)
-        {
-            delete _master._current_account;
-        }
-        _master._current_account = new ATM(_master._UKROP_BANK,_master._login.toStdString(),
-                                           _master._password.toStdString());
         _master.openWindow(Windows::ChooseAction);
     }
     else
@@ -39,24 +34,24 @@ void LoginScreenHandler::okClicked ()
 
 void LoginScreenHandler::left3clicked ()
 {
-    LoginScreen* screen = static_cast<LoginScreen*>(_master._current_frame);
+    LoginScreen* screen = static_cast<LoginScreen*>(_master.getCurrentFrame());
     QTimer::singleShot(0, screen->getCardNumberLine(), SLOT(setFocus()));
 }
 void LoginScreenHandler::left2clicked ()
 {
-    LoginScreen* screen = static_cast<LoginScreen*>(_master._current_frame);
+    LoginScreen* screen = static_cast<LoginScreen*>(_master.getCurrentFrame());
     QTimer::singleShot(0, screen->getPinLine(), SLOT(setFocus()));
 }
 
 void LoginScreenHandler::right3clicked ()
 {
-    LoginScreen* screen = static_cast<LoginScreen*>(_master._current_frame);
+    LoginScreen* screen = static_cast<LoginScreen*>(_master.getCurrentFrame());
     QTimer::singleShot(0, screen->getCardNumberLine(), SLOT(setFocus()));
 }
 
 void LoginScreenHandler::right2clicked ()
 {
-    LoginScreen* screen = static_cast<LoginScreen*>(_master._current_frame);
+    LoginScreen* screen = static_cast<LoginScreen*>(_master.getCurrentFrame());
     QTimer::singleShot(0, screen->getPinLine(), SLOT(setFocus()));
 }
 

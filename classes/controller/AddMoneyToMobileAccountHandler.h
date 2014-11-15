@@ -1,6 +1,9 @@
 #ifndef ADDMONEYTOMOBILEACCOUNTHANDLER_H
 #define ADDMONEYTOMOBILEACCOUNTHANDLER_H
-
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "ScreenHandler.h"
 
 #include "../Controller.h"

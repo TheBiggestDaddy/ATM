@@ -1,3 +1,7 @@
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "FailedScreenHandler.h"
 
 FailedScreenHandler::FailedScreenHandler(Controller& master):
@@ -18,7 +22,7 @@ void FailedScreenHandler::backspaceClicked ()
 
 void FailedScreenHandler::right2clicked ()
 {
-    _master._password = QString();
+    _master.clearPassword();
     _master.openWindow(Windows::Continue);
 }
 
