@@ -10,9 +10,6 @@
 
 using namespace std;
 
-//    Bank* _bank;
-//    Account* _account;
-
 ATM::ATM(const Bank& b,const string& login, const string& password)
     :_bank(&b),
      _account(&(_bank->getAccount(login, password)))

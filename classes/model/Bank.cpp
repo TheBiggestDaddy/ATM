@@ -17,42 +17,17 @@ Bank::Bank()
 
 Bank::~Bank()
 {
-    for(size_t i=0;i<_accounts.size();++i)
-        delete _accounts[i];
     for(size_t i=0;i<_customers.size();++i)
         delete _customers[i];
 };
 
 void Bank::fillCustomers()
 {
-    for(size_t i=1;i<6;++i)
-    {
-        ifstream usersFile ("customers/"+to_string(i)+".txt");
-        if (usersFile.is_open())
-        {
-            string line;
-            QString name = "";
-            QString surname = "";
-            QString address = "";
-
-            getline(usersFile,line);
-            name.append(line.c_str());
-            name.replace(0,3,"");
-
-            getline(usersFile,line);
-            surname.append(line.c_str());
-            surname.replace(0,3,"");
-
-            getline(usersFile,line);
-            address.append(line.c_str());
-            address.replace(0,3,"");
-
-            _customers.push_back(new Customer(name.toStdString(), surname.toStdString(), address.toStdString()));
-
-            usersFile.close();
-        }
-        else cout << "Unable to open file";
-    }
+    _customers.push_back(new Customer("Customer", "Reach", "New York"));
+    _customers.push_back(new Customer("a", "a", "a"));
+    _customers.push_back(new Customer("b", "b", "b"));
+    _customers.push_back(new Customer("c", "c", "c"));
+    _customers.push_back(new Customer("d", "d", "d"));
 };
 
 void Bank::fillAccounts()
@@ -66,61 +41,20 @@ void Bank::fillAccounts()
 void Bank::getAccountData(QString login, QString pass)
 {
     string line;
-    ifstream usersFile ("accounts/"+login.toStdString()+pass.toStdString()+".txt");
-    if (usersFile.is_open())
-    {
-        QString type = "";
-        QString name = "";
-        QString surname = "";
-        QString address = "";
-        QString money = "";
+    Customer* cus = &getCustomer("Customer", "Reach", "New York");
+    cus->addDebitAccount(login.toStdString(), pass.toStdString());
+    size_t moneyAmount(100500);
+    cus->getDebitAccount().putMoney(moneyAmount);
+    _accounts.push_back(&(cus->getDebitAccount()));
 
-        getline(usersFile,line);
-        type.append(line.c_str());
-        type.replace(0,3,"");
+    size_t limit(10000);
+    size_t getted(1000);
 
-        getline(usersFile,line);
-        name.append(line.c_str());
-        name.replace(0,3,"");
+    cus->addCreditAccount(limit, login.toStdString(), pass.toStdString());
+    cus->getCreditAccount().getMoney(getted);
 
-        getline(usersFile,line);
-        surname.append(line.c_str());
-        surname.replace(0,3,"");
-
-        getline(usersFile,line);
-        address.append(line.c_str());
-        address.replace(0,3,"");
-
-        getline(usersFile,line);
-        money.append(line.c_str());
-        money.replace(0,3,"");
-
-        Customer* cus = &getCustomer(name.toStdString(), surname.toStdString(), address.toStdString());
-        if(type == "D")
-        {
-            cus->addDebitAccount(login.toStdString(), pass.toStdString());
-            size_t moneyAmount(atoi(money.toStdString().c_str()));
-            cus->getDebitAccount().putMoney(moneyAmount);
-            _accounts.push_back(&(cus->getDebitAccount()));
-        }
-        else if(type == "C")
-        {
-            QString gotMoney = "";
-            getline(usersFile,line);
-            gotMoney.append(line.c_str());
-            gotMoney.replace(0,3,"");
-            size_t limit(atoi(money.toStdString().c_str()));
-            size_t getted(atoi(gotMoney.toStdString().c_str()));
-
-            cus->addCreditAccount(limit, login.toStdString(), pass.toStdString());
-            cus->getCreditAccount().getMoney(getted);
-
-            _accounts.push_back(&(cus->getCreditAccount()));
-        }
-        usersFile.close();
-    }
-    else cout << "Unable to open file";
-}
+    _accounts.push_back(&(cus->getCreditAccount()));
+};
 
 Customer& Bank::getCustomer(string name, string surname, string address)
 {
@@ -134,29 +68,8 @@ Customer& Bank::getCustomer(string name, string surname, string address)
 
 void Bank::getAccountsFromFile(QMap<QString, QString> &usersMap)
 {
-    string line;
-    ifstream usersFile ("Users.txt");
-    if (usersFile.is_open())
-    {
-        QString login = "";
-        QString pass = "";
-        while (getline(usersFile,line))
-        {
-            login.append(line.c_str());
-            getline(usersFile,line);
-            pass.append(line.c_str());
-            getline(usersFile,line);
-
-            login.replace(0,3,"");
-            pass.replace(0,3,"");
-
-            usersMap.insert(login, pass);
-            login = "";
-            pass = "";
-        }
-        usersFile.close();
-    }
-    else cout << "Unable to open file";
+    usersMap.insert("123456789", "1234");
+    usersMap.insert("987654321", "4321");
 };
 
 bool Bank::isValidAccount(QString login, QString password) const
