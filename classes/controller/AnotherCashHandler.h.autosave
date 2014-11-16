@@ -1,6 +1,9 @@
 #ifndef ANOTHERCASHHANDLER_H
 #define ANOTHERCASHHANDLER_H
-
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "ScreenHandler.h"
 
 

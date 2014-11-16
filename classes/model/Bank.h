@@ -42,7 +42,7 @@ public:
     ~Bank();
 
     bool isValidAccount(QString login, QString password) const;
-    bool makeTransaction(Account&, const string& , int) const;
+    bool makeTransaction(Account&, const string& , size_t) const;
 
     Account& getAccount(string login, string  password) const;
     Account& getAccountForTransaction(string login) const;

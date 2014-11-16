@@ -12,6 +12,8 @@ int mainKutsyk()
     if(b.isValidAccount("123456789", "1234"))
     {
         ATM _atm(b,"123456789", "1234");
+        cout<<"Start: "<<_atm.getStartDate()<<endl;
+        cout<<"End: "<<_atm.getEndDate()<<endl;
         cout<<"Left: "<<_atm.leftMoney()<<endl;
 
         cout<<"Send to phone: "<<boolalpha<<_atm.sendToPhone("911", 100)<<endl;

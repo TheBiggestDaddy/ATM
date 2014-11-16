@@ -25,12 +25,15 @@ public:
     ATM(const Bank&, const string& login, const string& password);
 	~ATM();	
 
-    inline bool withdrawFunds(int _quantity) { return _account->getMoney(_quantity); };
-    inline int leftMoney() { return _account->checkBalance(); };
+    inline bool withdrawFunds(size_t _quantity) { return _account->getMoney(_quantity); };
+    inline size_t leftMoney() { return _account->checkBalance(); };
 
-    bool sendToPhone(string _phoneNumber, int _quantity) { return _account->getMoney(_quantity); };
+    bool sendToPhone(string _phoneNumber, size_t _quantity) { return _account->getMoney(_quantity); };
 
-    bool sendToAccount(const string& accountNumber, int amount);
+    bool sendToAccount(const string& accountNumber, size_t amount);
+
+    inline const Date& getStartDate() {return _account->getStartDate(); };
+    inline const Date& getEndDate() { return _account->getEndDate(); };
 
     vector<string>& getHistory();
 };

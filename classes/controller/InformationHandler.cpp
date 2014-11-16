@@ -16,12 +16,5 @@ InformationHandler::~InformationHandler ()
 }
 void InformationHandler::backspaceClicked ()
 {
-    _master.clearPassword();
-    _master.openWindow(Windows::LoginScreen);
-}
-
-void InformationHandler::right1clicked()
-{
-    _master.clearPassword();
-    _master.openWindow(Windows::Continue);
+    _master.openWindow(Windows::ChooseAction);
 }

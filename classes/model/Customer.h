@@ -38,7 +38,7 @@ public:
     inline const string address() const {return _address; };
 
     bool addDebitAccount(string, string);
-    bool addCreditAccount(int, string, string);
+    bool addCreditAccount(size_t, string, string);
 
     inline DebitAccount& getDebitAccount() { return (*_debitAccount); };
     inline CreditAccount& getCreditAccount() { return (*_creditAccount); };

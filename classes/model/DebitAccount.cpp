@@ -18,8 +18,10 @@ DebitAccount::DebitAccount(Customer& c, string login, string pass)
      _accountNumber(login),
      _password(pass),
      _history(0),
-     _date()
+     _startDate(),
+     _endDate()
 {
+    _endDate.setYear(_endDate.year()+1);
 };
 
 DebitAccount::~DebitAccount()
@@ -27,19 +29,19 @@ DebitAccount::~DebitAccount()
     _owner = 0;
 };
 
-bool DebitAccount::getMoney(int quantity)
+bool DebitAccount::getMoney(size_t quantity)
 {
     if(_leftAmount>quantity)
     {
-        addActionToHistory("Get money: "+_date.getDefault()+" - "+to_string(quantity));
+        addActionToHistory("Get money: "+_startDate.getDefault()+" - "+to_string(quantity));
         _leftAmount-=quantity;
         return true;
     }else return false;
 };
 
-bool DebitAccount::putMoney(int quantity)
+bool DebitAccount::putMoney(size_t quantity)
 {
-    addActionToHistory("Put money: "+_date.getDefault()+" - "+to_string(quantity));
+    addActionToHistory("Put money: "+_startDate.getDefault()+" - "+to_string(quantity));
     if(_leftAmount += quantity)
         return true;
     else return false;

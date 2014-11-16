@@ -26,7 +26,7 @@ ATM::~ATM()
 };
 
 
-bool ATM::sendToAccount(const string& accountNumber, int amount)
+bool ATM::sendToAccount(const string& accountNumber, size_t amount)
 {
     return _bank->makeTransaction(*_account, accountNumber, amount);
 };

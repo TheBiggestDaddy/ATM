@@ -39,7 +39,7 @@ bool Customer::addDebitAccount(string login, string pass)
     else return false;
 };
 
-bool Customer::addCreditAccount(int limit, string login, string pass)
+bool Customer::addCreditAccount(size_t limit, string login, string pass)
 {
     if(_creditAccount == 0)
     {

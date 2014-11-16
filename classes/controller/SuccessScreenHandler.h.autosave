@@ -1,7 +1,9 @@
 #ifndef SUCCESSSCREENHANDLER_H
 #define SUCCESSSCREENHANDLER_H
-
-
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include "ScreenHandler.h"
 
 #include "../Controller.h"

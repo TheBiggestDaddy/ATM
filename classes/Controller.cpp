@@ -211,36 +211,3 @@ int Controller::convertToInt(const std::string& s)
     ss >> rez;
     return rez;
 }
-QFrame* Controller::getCurrentFrame() const
-{
-    return _current_frame;
-}
-
-void Controller::clearPassword()
-{
-    _password = QString();
-}
-bool Controller::confirmPassword(const QString password)
-{
-    _password = password;
-    if(ScreenHandler::isNumber(_login.toStdString()) &&
-            ScreenHandler::isNumber(_password.toStdString())&&
-            isValidAccount())
-    {
-        if(_current_account != nullptr)
-        {
-            delete _current_account;
-        }
-        _current_account = new ATM(_UKROP_BANK,_login.toStdString(),
-                                           _password.toStdString());
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-void Controller::setLogin(const QString login)
-{
-    _login = login;
-}
