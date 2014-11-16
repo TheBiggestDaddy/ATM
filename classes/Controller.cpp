@@ -20,6 +20,8 @@
 
 #include <iostream>
 
+const Bank Controller::_UKROP_BANK;
+
 Controller::Controller(MainWindow& w):
     _window(w),
     _current_frame(new LoginScreen()),
@@ -27,8 +29,7 @@ Controller::Controller(MainWindow& w):
     _current_screen_handler(new LoginScreenHandler(*this)),
     _login(),
     _password(),
-    _current_account(nullptr),
-    _UKROP_BANK()
+    _current_account(nullptr)
 {
     _window.addFrameChild(_current_frame);
 
@@ -96,6 +97,12 @@ void Controller::onRightButton1Clicked ()
     _current_screen_handler->right1clicked();
 }
 
+const std::string convert(const Date& d)
+{
+    std::string res;
+    //res = d.day() + d.month() + d.year();
+    return res;
+}
 void Controller::openWindow(const Windows::Window& screen)
 {
     if(_current_frame != nullptr)
@@ -134,7 +141,11 @@ void Controller::openWindow(const Windows::Window& screen)
     }
     case Windows::Information:
     {
-        _current_frame = new Information (std::to_string(_current_account->leftMoney()));
+        std::string start_date = convert(_current_account->getStartDate());
+        std::string end_date = convert(_current_account->getStartDate());
+        _current_frame = new Information (std::to_string(_current_account->leftMoney()),
+                                          start_date,
+                                          end_date);
         _current_screen_handler = new InformationHandler (*this);
         break;
     }

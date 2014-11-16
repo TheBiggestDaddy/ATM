@@ -6,6 +6,7 @@
  * ********************/
 #include <QFrame>
 
+
 namespace Ui {
 class Information;
 }
@@ -16,7 +17,9 @@ class Information : public QFrame
 
 public:
     explicit Information(QWidget *parent = 0,const std::string& balance = std::string());
-    explicit Information(const std::string& balance);
+    explicit Information(const std::string& balance,
+                         const std::string& startDate,
+                         const std::string& endDate);
     ~Information();
 
 private:

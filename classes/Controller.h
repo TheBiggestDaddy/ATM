@@ -65,7 +65,7 @@ private:
     void onRightButton1Clicked ();
 
     void openWindow(const Windows::Window& screen);
-    const Bank _UKROP_BANK;
+    static const Bank _UKROP_BANK;
     ATM* _current_account;
     bool isValidAccount();
     //Converting int to string

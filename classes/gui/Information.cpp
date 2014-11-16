@@ -5,6 +5,7 @@
 #include "Information.h"
 #include "ui_Information.h"
 
+
 Information::Information(QWidget *parent, const std::string &balance) :
     QFrame(parent),
     ui(new Ui::Information)
@@ -13,12 +14,14 @@ Information::Information(QWidget *parent, const std::string &balance) :
     ui->balance->setText(QString::fromUtf8(balance.c_str()));
 }
 
-Information::Information(const std::string& balance):
+Information::Information(const std::string& balance, const std::string &startDate, const std::string &endDate):
     QFrame(nullptr),
     ui(new Ui::Information)
 {
     ui->setupUi(this);
     ui->balance->setText(QString::fromUtf8(balance.c_str()));
+    ui->label->setText(QString::fromUtf8(startDate.c_str()));
+    ui->label_2->setText(QString::fromUtf8(endDate.c_str()));
 }
 
 Information::~Information()

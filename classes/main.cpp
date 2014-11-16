@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     w.show();
 
     Controller controller(w);
+    controller;
 
     return a.exec();
 }
