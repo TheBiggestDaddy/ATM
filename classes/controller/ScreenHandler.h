@@ -1,6 +1,9 @@
 #ifndef SCREENHANDLER_H
 #define SCREENHANDLER_H
-
+/**********************
+ * Dobrianskiy Andriy *
+ * ****08.11.2014**** *
+ * ********************/
 #include <string>
 
 class ScreenHandler

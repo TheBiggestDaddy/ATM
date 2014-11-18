@@ -100,7 +100,7 @@ void Controller::onRightButton1Clicked ()
 const std::string convert(const Date& d)
 {
     std::string res;
-    //res = d.day() + d.month() + d.year();
+    res = std::to_string(d.day()) + '.' + std::to_string(static_cast<int>(d.month())) + '.' + std::to_string(d.year());
     return res;
 }
 void Controller::openWindow(const Windows::Window& screen)
@@ -188,6 +188,7 @@ void Controller::openWindow(const Windows::Window& screen)
         break;
     }
     default:
+        cout << "=((((" << endl;
         throw "Can`t detect screen! =(";
         break;
     }

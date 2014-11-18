@@ -1,27 +1,24 @@
-/**********************
- * Dobrianskiy Andriy *
- * ****08.11.2014**** *
- * ********************/
 #include "Information.h"
 #include "ui_Information.h"
 
-
-Information::Information(QWidget *parent, const std::string &balance) :
+Information::Information(QWidget *parent, const std::string &balance, const std::string& end_date, const std::string& issue_date) :
     QFrame(parent),
     ui(new Ui::Information)
 {
     ui->setupUi(this);
     ui->balance->setText(QString::fromUtf8(balance.c_str()));
+    ui->end_date->setText(QString::fromUtf8(end_date.c_str()));
+    ui->issue_date->setText(QString::fromUtf8(issue_date.c_str()));
 }
 
-Information::Information(const std::string& balance, const std::string &startDate, const std::string &endDate):
-    QFrame(nullptr),
+Information::Information(const std::string& balance,const std::string& end_date,
+                         const std::string& issue_date): QFrame(nullptr),
     ui(new Ui::Information)
 {
     ui->setupUi(this);
     ui->balance->setText(QString::fromUtf8(balance.c_str()));
-    ui->label->setText(QString::fromUtf8(startDate.c_str()));
-    ui->label_2->setText(QString::fromUtf8(endDate.c_str()));
+    ui->end_date->setText(QString::fromUtf8(end_date.c_str()));
+    ui->issue_date->setText(QString::fromUtf8(issue_date.c_str()));
 }
 
 Information::~Information()

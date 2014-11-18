@@ -16,5 +16,14 @@ InformationHandler::~InformationHandler ()
 }
 void InformationHandler::backspaceClicked ()
 {
-    _master.openWindow(Windows::ChooseAction);
+    _master.openWindow(Windows::LoginScreen);
+}
+void InformationHandler::okClicked ()
+{
+    _master.openWindow(Windows::Continue);
+}
+
+void InformationHandler::right1clicked()
+{
+    _master.openWindow(Windows::Continue);
 }
